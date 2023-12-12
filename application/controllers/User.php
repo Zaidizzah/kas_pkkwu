@@ -239,6 +239,15 @@ class User extends CI_Controller
 		}
 	}
 
+	public function hapus_data($id)
+	{
+		$this->db->where('id_user', $id);
+		$this->db->delete('user');
+
+		$this->session->set_flashdata('success', 'Data pengguna terkait berhasil dihapus,');
+		redirect('user');
+	}
+
 	public function logout()
 	{
 		$this->session->sess_destroy();
